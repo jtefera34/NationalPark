@@ -1,0 +1,46 @@
+/* nationalParks.css */
+
+body {
+  font-family: 'Lobster', sans-serif;
+}
+
+.navbar {
+  background-color: #4CAF50;
+}
+
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.container {
+  margin-top: 80px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-family: 'Lobster', cursive;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.list-group-item {
+  margin-bottom: 10px;
+}
+
+#footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

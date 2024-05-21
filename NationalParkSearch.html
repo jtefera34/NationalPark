@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Park Search</title>
+    <title>National Parks Search</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mountain.css"> <!-- Updated CSS file for this page -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">National Park</a>
+        <a class="navbar-brand logo-font" href="#">National Park</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,42 +28,61 @@
                 <li class="nav-item">
                     <a class="nav-link" href="mountainPage.html">Mountains</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="nationalParkSearch.html">Parks</a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="nationalParkSearch.html">Parks</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 ml-auto">
+            <form class="form-inline ml-3 my-2 my-lg-0" aria-label="Search form">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" aria-label="Submit search">Search</button>
             </form>
         </div>
     </nav>
 
-    <div class="hero-section">
-        <h1>FIND YOUR PARK</h1>
-        <p>Search for national parks to explore their beauty and unique features.</p>
-        <form class="form-inline hero-search my-2 my-lg-0 justify-content-center">
-            <input class="form-control mr-sm-2 w-50" type="search" placeholder="Enter park name" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-
-    <section class="park-search mt-5">
-        <div class="container">
-            <h3 class="text-center mb-5">National Park Search</h3>
-            <div class="search-results mt-5">
-                <!-- Search results will be inserted here by JavaScript -->
+    <!-- Main Content -->
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center">National Parks Search</h1>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button id="filterOptionsBtn" class="btn btn-secondary">Filter Options</button>
+            </div>
+            <div class="col-md-6 hidden" id="locationContainer">
+                <label>Search by Location:</label>
+                <div id="locationSelect" class="form-group">
+                    <!-- Checkboxes will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="col-md-6 hidden" id="parkTypeContainer">
+                <label>Search by Park Type:</label>
+                <div id="parkTypeSelect" class="form-group">
+                    <!-- Checkboxes will be populated by JavaScript -->
+                </div>
             </div>
         </div>
-    </section>
+        <div class="mt-2 text-center">
+            <button id="viewAllBtn" class="btn btn-primary">View All National Parks</button>
+            <button id="searchBtn" class="btn btn-success">Search</button>
+        </div>
+        <div class="mt-4">
+            <h2>Search Results</h2>
+            <ul id="resultsList" class="list-group">
+                <!-- Search results will be displayed here -->
+            </ul>
+            <div id="paginationControls" class="mt-2">
+                <button id="prevBtn" class="btn btn-secondary hidden">Previous</button>
+                <button id="nextBtn" class="btn btn-secondary hidden">Next</button>
+            </div>
+        </div>
+    </div>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer" id="footer">
         <p>&copy; 2024 Your Company. All Rights Reserved.</p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/parkTypeData.js"></script>
+    <script src="scripts/nationalParkData.js"></script>
+    <script src="scripts/locationData.js"></script>
+    <script src="scripts/nationalParkSearch.js"></script>
 </body>
 </html>
