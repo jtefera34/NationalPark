@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Information</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/mountain.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand logo-font" href="#">National Park</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="mountainPage.html">Mountains</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nationalParkSearch.html">Parks</a>
+                </li>
+            </ul>
+            <form class="form-inline ml-3 my-2 my-lg-0" aria-label="Search form">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" aria-label="Submit search">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section" style="background-image: url('images/background_image1.jpg');">
+        <div class="overlay"></div>
+        <div class="carousel-caption">
+            <h1 id="carouselTitle">MAJESTIC MOUNTAINS</h1>
+            <p id="carouselDescription">Discover the tallest and most beautiful mountains in our national parks.</p>
+            <div class="form-group">
+                <label for="mountainSelect" class="text-white">Select a Mountain:</label>
+                <select class="form-control" id="mountainSelect" aria-label="Mountain selector">
+                    <option value="0">Select a mountain</option>
+                </select>
+            </div>
+            <button id="moreInfoButton" class="btn btn-primary" onclick="displayMountainInfo()">More Info</button>
+            <!-- Carousel -->
+            <div id="smallImageCarousel" class="carousel slide mt-3" data-ride="carousel">
+                <div class="carousel-inner" id="carouselInner">
+                    <!-- Carousel items will be dynamically added here by JavaScript -->
+                    <div class="carousel-item active">
+
+                    </div>
+                    <!-- Add more images as needed -->
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/mountainData.js"></script>
+    <script src="scripts/mountainScript.js"></script>
+</body>
+</html>

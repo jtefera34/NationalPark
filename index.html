@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Information</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> <!-- Add Google Fonts link -->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand logo-font" href="#">National Park</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mountainPage.html">Mountains</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nationalParkSearch.html">Parks</a>
+                </li>
+            </ul>
+            <form class="form-inline ml-3 my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div id="heroCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="hero-section" style="background-image: url('images/Eisenhower-StoryImage_2.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-section" style="background-image: url('images/Garfield-StoryImage.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-section" style="background-image: url('images/Wildcat-StoryImage.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-section" style="background-image: url('images/WBond-StoryImage.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+                <div class="hero-section" style="background-image: url('images/Jackson-StoryImg.jpg');"></div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="hero-content text-center text-white">
+        <h1>EXPLORE. DISCOVER. PROTECT.</h1>
+        <p>Experience the beauty of nature with us. We are dedicated to preserving and showcasing the wonders of our national parks.</p>
+        <a href="MountainPage.html" class="btn btn-danger rounded-pill mr-2">Mountains</a>
+        <a href="NationalParkSearch.html" class="btn btn-light rounded-pill">Search</a>
+    </div>
+
+    <section class="about-us">
+        <div class="container">
+            <h3 class="text-center mb-5">About Us</h3>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://picsum.photos/600/400?random=1" alt="About Us Image" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6 description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempus. In quis arcu et eros porta lobortis sit amet. Praesent sed neque felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam at condimentum odio, ut scelerisque sapien.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Your Company. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

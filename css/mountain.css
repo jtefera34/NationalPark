@@ -1,0 +1,64 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.navbar {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the navbar */
+    border: none;
+}
+.logo-font {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFD700; /* Golden color to make it stand out */
+}
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: black; /* Fallback color */
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 95, 45, 0.8); /* Overlay */
+    z-index: 1;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.carousel-indicators li {
+    background-color: white;
+}
+.carousel-inner .carousel-background {
+    cursor: pointer;
+}
+.bg-dark-transparent {
+    background: rgba(0, 0, 0, 0.7); /* Transparent dark background for description */
+}
+.modal-backdrop.show {
+    opacity: 0.85;
+    filter: blur(5px); /* Blur the background when the modal is open */
+}
+.footer {
+    background: #343a40;
+    color: white;
+    padding: 5px 0;
+    text-align: center;
+    margin-top: 100px;
+}
