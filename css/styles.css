@@ -1,12 +1,25 @@
-/* Style for navbar bottom border */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: url('../images/carousel.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: black;
+}
+
 .navbar {
+  background-color: #1c1c1c;
   border-bottom: 2px solid #333;
 }
-.logo-font {
-  font-family: 'Lobster', cursive;
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif; /* Modern font for the brand */
   font-size: 2rem;
   font-weight: bold;
   color: #FFD700; /* Golden color to make it stand out */
+}
+
+.nav-link {
+  font-family: 'Roboto', sans-serif; /* Modern font for nav links */
+  color: #fff !important;
 }
 
 .hero-section {
@@ -30,7 +43,6 @@
   z-index: 2;
 }
 
-/* Overlay for the entire hero section */
 .hero-section::after {
   content: '';
   position: absolute;
@@ -38,13 +50,34 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(45, 95, 45, 0.5); /* Black transparent overlay */
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
   z-index: 1;
 }
+
 .hero-content .btn-group .btn {
-    margin-right: 15px; /* Adjust the margin as needed */
+  margin-right: 15px; /* Adjust the margin as needed */
 }
 
 .hero-content .btn-group .btn:last-child {
-    margin-right: 0; /* Remove margin from the last button */
+  margin-right: 0; /* Remove margin from the last button */
+}
+
+.about-us {
+  padding: 60px 0;
+}
+
+.about-us h3 {
+  margin-bottom: 40px;
+  font-family: 'Montserrat';
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1c1c1c;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
