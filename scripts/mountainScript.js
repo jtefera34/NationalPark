@@ -1,93 +1,76 @@
 window.onload = function() {
     const mountainSelect = document.querySelector('#mountainSelect');
+    const carouselInner = document.getElementById('carouselInner');
 
+    // Populate the dropdown with mountain options
     for (let i = 0; i < mountainsArray.length; i++) {
         const option = document.createElement('option');
         option.value = mountainsArray[i].name;
         option.textContent = mountainsArray[i].name;
         mountainSelect.appendChild(option);
+
+        // Populate the carousel with mountain images
+        const carouselItem = document.createElement('div');
+        carouselItem.className = i === 0 ? 'carousel-item active' : 'carousel-item';
+
+        const mountainImage = document.createElement('img');
+        mountainImage.src = `images/${mountainsArray[i].img}`;
+        mountainImage.alt = mountainsArray[i].name;
+        mountainImage.className = 'd-block w-50';
+        mountainImage.addEventListener('click', function() {
+            displayMountainInfoFromCarousel(mountainsArray[i]);
+        });
+        carouselItem.appendChild(mountainImage);
+
+        const carouselCaption = document.createElement('div');
+        carouselCaption.className = 'carousel-caption d-none d-md-block';
+        carouselItem.appendChild(carouselCaption);
+
+        const mountainTitle = document.createElement('h5');
+        mountainTitle.textContent = mountainsArray[i].name;
+        carouselCaption.appendChild(mountainTitle);
+
+        carouselInner.appendChild(carouselItem);
+    }
+
+    // Attach the onchange event to the dropdown
+    mountainSelect.onchange = displayMountainInfo;
+};
+
+window.displayMountainInfo = function() {
+    const mountainSelect = document.querySelector('#mountainSelect');
+    const selectedMountainName = mountainSelect.value;
+    let selectedMountain = null;
+
+    // Find the selected mountain from the array
+    for (let i = 0; i < mountainsArray.length; i++) {
+        if (mountainsArray[i].name === selectedMountainName) {
+            selectedMountain = mountainsArray[i];
+            break;
+        }
+    }
+
+    if (selectedMountain) {
+        // Update the modal with the selected mountain's information
+        updateModalContent(selectedMountain);
+
+        // Show the modal
+        $('#mountainModal').modal('show');
     }
 };
- 
-    window.displayMountainInfo = function() {
-        let selectedMountain = null;
 
-        
-        for (let i = 0; i < mountainsArray.length; i++) {
-            if (mountainsArray[i].name === mountainSelect.value) {
-                selectedMountain = mountainsArray[i];
-                break; 
-            }
-        }
-        
-               if (selectedMountain) {
-            
-            const existingModal = document.getElementById('dynamicModal');
-            if (existingModal) {
-                existingModal.remove();
-            }
+window.displayMountainInfoFromCarousel = function(mountain) {
+    // Update the modal with the selected mountain's information
+    updateModalContent(mountain);
 
-        
-            const modal = document.createElement('div');
-            modal.className = 'modal modal-dialog modal-sm fade';
-            modal.id = 'dynamicModal';
-            modal.tabIndex = '-1';
-            // modal.setAttribute('tabIndex','-1')
-            modal.setAttribute('aria-labelledby', 'modalLabel');
-            modal.setAttribute('aria-hidden', 'true');
-            
-            document.body.appendChild(modal);
-            
-            const modalDialog = document.createElement('div');
-            modalDialog.className = 'modal-dialog modal-dialog-centered modal-lg';
-            modal.appendChild(modalDialog);
-            
-            const modalContent = document.createElement('div');
-            modalContent.className = 'modal-content bg-dark text-white';
-            modalDialog.appendChild(modalContent);
-            
-            const modalHeader = document.createElement('div');
-            modalHeader.className = 'modal-header';
-            modalContent.appendChild(modalHeader);
-            
-            const modalTitle = document.createElement('h5');
-            modalTitle.className = 'modal-title';
-            modalTitle.id = 'modalLabel';
-            modalTitle.textContent = selectedMountain.name;
-            modalHeader.appendChild(modalTitle);
-            
-            const modalCloseButton = document.createElement('button');
-            modalCloseButton.className = 'close';
-            modalCloseButton.type = 'button';
-            modalCloseButton.setAttribute('data-dismiss', 'modal');
-            modalCloseButton.setAttribute('aria-label', 'Close');
-            modalHeader.appendChild(modalCloseButton);
-            
-            const closeSpan = document.createElement('span');
-            closeSpan.setAttribute('aria-hidden', 'true');
-            closeSpan.innerHTML = '&times;';
-            modalCloseButton.appendChild(closeSpan);
-            
-            const modalBody = document.createElement('div');
-            modalBody.className = 'modal-body p-0';
-            modalContent.appendChild(modalBody);
-            
-            const mountainImage = document.createElement('img');
-            mountainImage.src = `images/${selectedMountain.img}`;
-            mountainImage.alt = selectedMountain.name;
-            mountainImage.className = 'img-fluid w-100';
-            modalBody.appendChild(mountainImage);
-            
-            const modalTextContainer = document.createElement('div');
-            modalTextContainer.className = 'p-3 bg-dark-transparent';
-            modalBody.appendChild(modalTextContainer);
-            
-            const mountainDescription = document.createElement('p');
-            mountainDescription.textContent = selectedMountain.desc;
-            modalTextContainer.appendChild(mountainDescription);
-            
-   
-            const bootstrapModal = new bootstrap.Modal(modal);
-            bootstrapModal.show();
-        }
-    }
+    // Show the modal
+    $('#mountainModal').modal('show');
+};
+
+function updateModalContent(mountain) {
+    document.getElementById('mountainModalLabel').textContent = mountain.name;
+    document.getElementById('mountainModalImage').src = `images/${mountain.img}`;
+    document.getElementById('mountainModalDescription').textContent = mountain.desc;
+    document.getElementById('mountainModalHeight').textContent = mountain.elevation + " feet";
+    document.getElementById('mountainModalLocation').textContent = "Latitude: " + mountain.coords.lat + ", Longitude: " + mountain.coords.lng;
+}

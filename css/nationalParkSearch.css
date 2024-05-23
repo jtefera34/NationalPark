@@ -1,30 +1,17 @@
-/* nationalParks.css */
-
 body {
   font-family: 'Montserrat', sans-serif;
+  background: url('/background3.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
   margin: 0;
   padding: 0;
-  color: white;
-  
 }
 
 .background-wrap {
   position: relative;
   width: 100%;
- 
-  background: url('/background3.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
-
-.background-wrap::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9); /* Dark transparent overlay */
-  z-index: 1;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
 }
 
 .content-wrap {
@@ -34,17 +21,18 @@ body {
 
 .navbar {
   background-color: #1c1c1c;
+  border-bottom: 2px solid #333;
 }
 
 .navbar-brand {
   font-family: 'Montserrat', sans-serif; /* Modern font for the brand */
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #FFD700; /* Golden color */
+  color: #FFD700; /* Golden color to make it stand out */
 }
 
 .nav-link {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif; /* Modern font for nav links */
   color: #fff !important;
 }
 
@@ -54,7 +42,7 @@ body {
 
 h1 {
   margin-bottom: 20px;
-  font-family: 'Montserrat', cursive;
+  font-family: 'Montserrat', sans-serif; /* Updated to match home page */
 }
 
 .btn {
@@ -76,6 +64,126 @@ h1 {
   left: 0;
   bottom: 0;
   width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-item {
+  height: 100vh;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
+  z-index: 1;
+}
+
+.hero-content .btn-group .btn {
+  margin-right: 15px; /* Adjust the margin as needed */
+}
+
+.hero-content .btn-group .btn:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+}
+
+.about-us {
+  padding: 60px 0;
+}
+
+.about-us h3 {
+  margin-bottom: 40px;
+  font-family: 'Montserrat', sans-serif; /* Updated to match home page */
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1c1c1c;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+/* Common styles for both select containers */
+.form-check {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* Adjust the spacing and positioning as needed */
+.form-check-label {
+  margin-left: 5px;
+}
+
+#locationSelect, #parkTypeSelect {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+/* Common styles for both select containers */
+.form-check {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* Adjust the spacing and positioning as needed */
+.form-check-label {
+  margin-left: 5px;
+}
+
+#locationSelect, #parkTypeSelect {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; /* Ensure the font matches the design */
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#resultsList {
+  margin-top: 20px;
 }
 
 .hidden {
