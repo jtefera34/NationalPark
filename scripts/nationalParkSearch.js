@@ -1,3 +1,5 @@
+"use strict";
+// all the button/input/output
 window.onload = function() {
     const locationSelect = document.getElementById('locationSelect');
     const parkTypeSelect = document.getElementById('parkTypeSelect');
@@ -8,10 +10,11 @@ window.onload = function() {
     const locationContainer = document.getElementById('locationContainer');
     const parkTypeContainer = document.getElementById('parkTypeContainer');
 
+
     // Function to populate location checkboxes
     function populateLocationSelect() {
-        for (let i = 0; i < locationsArray.length; i++) {
-            const location = locationsArray[i];
+        locationSelect.innerHTML = ''; // Clear existing options
+        locationsArray.forEach((location, i) => {
             const div = document.createElement('div');
             div.classList.add('form-check');
             
@@ -29,13 +32,13 @@ window.onload = function() {
             div.appendChild(input);
             div.appendChild(label);
             locationSelect.appendChild(div);
-        }
+        });
     }
 
     // Function to populate park type checkboxes
     function populateParkTypeSelect() {
-        for (let i = 0; i < parkTypesArray.length; i++) {
-            const parkType = parkTypesArray[i];
+        parkTypeSelect.innerHTML = ''; // Clear existing options
+        parkTypesArray.forEach((parkType, i) => {
             const div = document.createElement('div');
             div.classList.add('form-check');
             
@@ -53,14 +56,13 @@ window.onload = function() {
             div.appendChild(input);
             div.appendChild(label);
             parkTypeSelect.appendChild(div);
-        }
+        });
     }
 
-    // Populate the select elements with data
     populateLocationSelect();
     populateParkTypeSelect();
 
-    // Function to display results
+    // Function for results
     function displayResults(parks) {
         resultsList.innerHTML = '';
         if (parks.length === 0) {
@@ -69,8 +71,7 @@ window.onload = function() {
             li.textContent = 'No results found.';
             resultsList.appendChild(li);
         } else {
-            for (let i = 0; i < parks.length; i++) {
-                const park = parks[i];
+            parks.forEach((park) => {
                 const li = document.createElement('li');
                 li.classList.add('list-group-item');
 
@@ -84,19 +85,24 @@ window.onload = function() {
                 address.textContent = `${park.Address ? park.Address + ', ' : ''}${park.City ? park.City + ', ' : ''}${park.State ? park.State + ' ' : ''}${park.ZipCode ? park.ZipCode : ''}`;
                 li.appendChild(address);
 
+                const contactInfo = document.createElement('div');
+                contactInfo.classList.add('contact-info');
+
                 if (park.Phone) {
                     const phone = document.createElement('p');
                     phone.classList.add('phone');
                     phone.textContent = `Phone: ${park.Phone}`;
-                    li.appendChild(phone);
+                    contactInfo.appendChild(phone);
                 }
 
                 if (park.Fax) {
                     const fax = document.createElement('p');
                     fax.classList.add('fax');
                     fax.textContent = `Fax: ${park.Fax}`;
-                    li.appendChild(fax);
+                    contactInfo.appendChild(fax);
                 }
+
+                li.appendChild(contactInfo);
 
                 if (park.Visit) {
                     const visit = document.createElement('p');
@@ -110,21 +116,17 @@ window.onload = function() {
                 }
 
                 resultsList.appendChild(li);
-            }
+            });
         }
     }
 
-    //  to get selected values
+    // Function to get selected values
     function getSelectedValues(containerId) {
         const checkboxes = document.querySelectorAll(`#${containerId} input[type="checkbox"]:checked`);
-        const selectedValues = [];
-        for (let i = 0; i < checkboxes.length; i++) {
-            selectedValues.push(checkboxes[i].value);
-        }
-        return selectedValues;
+        return Array.from(checkboxes).map(checkbox => checkbox.value);
     }
 
-    // Toggle 
+    // Toggle  options
     filterOptionsBtn.onclick = function() {
         locationContainer.classList.toggle('hidden');
         parkTypeContainer.classList.toggle('hidden');
@@ -137,9 +139,7 @@ window.onload = function() {
 
         const filteredParks = nationalParksArray.filter(function(park) {
             const locationMatch = selectedLocations.length === 0 || selectedLocations.includes(park.State);
-            const parkTypeMatch = selectedParkTypes.length === 0 || selectedParkTypes.some(function(type) {
-                return park.LocationName.includes(type);
-            });
+            const parkTypeMatch = selectedParkTypes.length === 0 || selectedParkTypes.some(type => park.LocationName.includes(type));
             return locationMatch && parkTypeMatch;
         });
 

@@ -1,15 +1,16 @@
+"use strict";
 window.onload = function() {
     const mountainSelect = document.querySelector('#mountainSelect');
     const carouselInner = document.getElementById('carouselInner');
 
-    // Populate the dropdown with mountain options
+    // Populate the dropdown for mountain name
     for (let i = 0; i < mountainsArray.length; i++) {
         const option = document.createElement('option');
         option.value = mountainsArray[i].name;
         option.textContent = mountainsArray[i].name;
         mountainSelect.appendChild(option);
 
-        // Populate the carousel with mountain images
+        // Populate the carousel with images and name
         const carouselItem = document.createElement('div');
         carouselItem.className = i === 0 ? 'carousel-item active' : 'carousel-item';
 
@@ -33,7 +34,7 @@ window.onload = function() {
         carouselInner.appendChild(carouselItem);
     }
 
-    // Attach the onchange event to the dropdown
+    // onchange 
     mountainSelect.onchange = displayMountainInfo;
 };
 
@@ -49,24 +50,19 @@ window.displayMountainInfo = function() {
             break;
         }
     }
-
     if (selectedMountain) {
-        // Update the modal with the selected mountain's information
+    
         updateModalContent(selectedMountain);
-
-        // Show the modal
-        $('#mountainModal').modal('show');
+       $('#mountainModal').modal('show');
     }
 };
 
 window.displayMountainInfoFromCarousel = function(mountain) {
-    // Update the modal with the selected mountain's information
     updateModalContent(mountain);
-
-    // Show the modal
     $('#mountainModal').modal('show');
 };
 
+// dyamically update the modal.
 function updateModalContent(mountain) {
     document.getElementById('mountainModalLabel').textContent = mountain.name;
     document.getElementById('mountainModalImage').src = `images/${mountain.img}`;

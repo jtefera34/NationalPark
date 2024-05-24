@@ -13,14 +13,14 @@ body {
 }
 
 .navbar-brand {
-  font-family: 'Montserrat', sans-serif; /* Modern font for the brand */
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: bold;
-  color: #FFD700; /* Golden color to make it stand out */
+  color: #FFD700;
 }
 
 .nav-link {
-  font-family: 'Roboto', sans-serif; /* Modern font for nav links */
+  font-family: 'Roboto', sans-serif; 
   color: #fff !important;
 }
 
@@ -52,16 +52,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
+  background: rgba(0, 0, 0, 0.7); 
   z-index: 1;
 }
 
 .hero-content .btn-group .btn {
-  margin-right: 15px; /* Adjust the margin as needed */
+  margin-right: 15px;
 }
 
 .hero-content .btn-group .btn:last-child {
-  margin-right: 0; /* Remove margin from the last button */
+  margin-right: 0; 
 }
 
 .about-us {
@@ -70,7 +70,7 @@ body {
 
 .about-us h3 {
   margin-bottom: 40px;
-  font-family: 'Montserrat', sans-serif; /* Updated to match home page */
+  font-family: 'Montserrat', sans-serif; 
 }
 
 .footer {
@@ -82,4 +82,5 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
+  margin-top: 100px;
 }

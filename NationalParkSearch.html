@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Parks Search</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/nationalParkSearch.css"> <!-- Updated CSS file for this page -->
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
-    <style>
-        .logo-font {
-            font-family: 'Lobster', cursive;
-        }
-    </style>
+    <link rel="stylesheet" href="css/nationalParkSearch.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand logo-font" href="#">National Park</a>
+        <a class="navbar-brand logo-font" href="index.html">National Park</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,42 +34,41 @@
             </form>
         </div>
     </nav>
+    <!-- nav bar -->
 
-    
-    <div class="background-wrap">
-      
+    <div class="background-wrap"> 
         <div class="content-wrap container mt-5 pt-5">
             <h1 class="text-center">National Parks Search</h1>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <button id="filterOptionsBtn" class="btn btn-secondary">Filter Options</button>
+                    <button id="filterOptionsBtn" class="btn btn-secondary" data-toggle="collapse" data-target="#filterContainer" aria-expanded="false" aria-controls="filterContainer">Filter Options</button>
                 </div>
-                <div class="col-md-6 hidden" id="locationContainer">
-                    <label>Search by Location:</label>
-                    <div id="locationSelect" class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Alaska" id="location0">
-                            <label class="form-check-label" for="location0">Alaska</label>
+                <div class="collapse col-md-12" id="filterContainer">
+                    <div class="filter-row" id="locationContainer">
+                        <label>Search by Location:</label>
+                        <div id="locationSelect" class="form-group filter-options">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Alaska" id="location0">
+                                <label class="form-check-label" for="location0">Alaska</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="California" id="location1">
+                                <label class="form-check-label" for="location1">California</label>
+                            </div>
+                            <!-- Add more checkboxes as needed -->
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="California" id="location1">
-                            <label class="form-check-label" for="location1">California</label>
-                        </div>
-                      
                     </div>
-                </div>
-                <div class="col-md-6 hidden" id="parkTypeContainer">
-                    <label>Search by Park Type:</label>
-                    <div id="parkTypeSelect" class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="National Park" id="parkType0">
-                            <label class="form-check-label" for="parkType0">National Park</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Historic Site" id="parkType1">
-                            <label class="form-check-label" for="parkType1">Historic Site</label>
-                        </div>
-                        <!-- Add more checkboxes as needed -->
+                    <div class="filter-row" id="parkTypeContainer">
+                        <label>Search by Park Type:</label>
+                        <div id="parkTypeSelect" class="form-group filter-options">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="National Park" id="parkType0">
+                                <label class="form-check-label" for="parkType0">National Park</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Historic Site" id="parkType1">
+                                <label class="form-check-label" for="parkType1">Historic Site</label>
+                         
                     </div>
                 </div>
             </div>
@@ -85,7 +79,6 @@
             <div class="mt-4">
                 <h2>Search Results</h2>
                 <ul id="resultsList" class="list-group">
-                    <!-- Search results will be displayed here -->
                     <li class="list-group-item result-item hidden">
                         <h5 class="location-name"></h5>
                         <p class="address"></p>
